@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// relacion tipo arbol
 type User struct {
 	nombre string
 	email  string
