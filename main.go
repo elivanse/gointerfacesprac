@@ -1,36 +1,36 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// relacion tipo arbol
-type User struct {
-	nombre string
-	email  string
-	activo bool
+type Animal interface {
+	mover() string
 }
 
-type Student struct {
-	user   User
-	codigo string
+type Perro struct{}
+type Pez struct{}
+type Pajaro struct{}
+
+func (*Perro) mover() string {
+	return "soy un perro y camino"
 }
 
+func (*Pez) mover() string {
+	return "soy un pez y nado"
+}
+
+func (*Pajaro) mover() string {
+	return "soy un pajaro y vuelo "
+}
+func moverAnimal(animal Animal) {
+	fmt.Println(animal.mover())
+}
 func main() {
-	alex := User{
-		nombre: "Alex",
-		email:  "alex@gmail.com",
-		activo: true,
-	}
-	ivan := User{
-		nombre: "Ivan",
-		email:  "ivan@gmail.com",
-		activo: true,
-	}
-	alexStud := Student{
-		user:   alex,
-		codigo: "001",
-	}
-	fmt.Println(ivan)
-	fmt.Println(alexStud)
+	perror := Perro{}
+	moverAnimal(&perror)
+
+	pezr := Pez{}
+	moverAnimal(&pezr)
+
+	pajaror := Pajaro{}
+	moverAnimal(&pajaror)
 }
